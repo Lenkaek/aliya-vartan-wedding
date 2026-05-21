@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Вартан & Алия | Свадебное приглашение</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf7f2;
+      color: #2c2418;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .floral-aura {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .color-wash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(230, 200, 170, 0.12), transparent 60%);
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e6dfd6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #b7a287;
+      border-radius: 3px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 1s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .fade-up.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .fade-in.appear {
+      opacity: 1;
+    }
+
+    section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(145deg, #fefaf5 0%, #f5efe8 100%);
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(210, 180, 140, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      max-width: 500px;
+      width: 85%;
+      margin-bottom: 30px;
+      border-radius: 42px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image-wrapper:hover {
+      transform: translateY(-5px);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-image-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 35%;
+      background: linear-gradient(to bottom, transparent, #f5efe8);
+      pointer-events: none;
+    }
+
+    .scroll-hint {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #8f7a64;
+      font-weight: 300;
+    }
+
+    .arrow-animated {
+      margin-top: 14px;
+      font-size: 28px;
+      color: #b2926e;
+      animation: floatArrow 2s infinite ease;
+    }
+
+    @keyframes floatArrow {
+      0% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(12px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.5; }
+    }
+
+    .invite {
+      padding: 100px 20px;
+      background: #fffcf8;
+      position: relative;
+    }
+
+    .invite-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .invite h2 {
+      font-family: 'Forum', serif;
+      font-size: clamp(2.8rem, 8vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: 4px;
+      margin-bottom: 32px;
+      color: #3f2e21;
+    }
+
+    .invite p {
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      line-height: 1.7;
+      font-weight: 400;
+      color: #4b3a2b;
+    }
+
+    .calendar-classic {
+      margin-top: 70px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .calendar-title {
+      font-family: 'Forum', serif;
+      font-size: 3rem;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+      color: #2c2418;
+    }
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 520px;
+      margin: 0 auto 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2c2418;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      color: #5a4632;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 520px;
+      margin: auto;
+      row-gap: 18px;
+    }
+
+    .calendar-grid div {
+      font-family: 'Forum', serif;
+      font-size: 3rem;
+      color: #1f1a14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 72px;
+    }
+
+    .calendar-grid .empty {
+      visibility: hidden;
+    }
+
+    .selected-day {
+      width: 72px;
+      height: 72px;
+      margin: auto;
+      border-radius: 50%;
+      background: #000;
+      color: white !important;
+    }
+
+    @media (max-width: 700px) {
+      .calendar-title {
+        font-size: 2.3rem;
+      }
+      .calendar-grid div {
+        font-size: 2rem;
+        height: 54px;
+      }
+      .selected-day {
+        width: 54px;
+        height: 54px;
+      }
+      .calendar-weekdays {
+        font-size: 0.7rem;
+      }
+    }
+
+    .timeline-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: -20px auto 60px;
+    }
+
+    .timeline-divider span {
+      width: 90px;
+      height: 1px;
+      background: #ccb79f;
+      display: block;
+    }
+
+    .timeline-divider .diamond {
+      width: 10px;
+      height: 10px;
+      border: 1px solid #ccb79f;
+      transform: rotate(45deg);
+      background: transparent;
+    }
+
+    .timeline {
+      background: #fefaf5;
+      padding: 0 0 100px;
+    }
+
+    .timeline-top {
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .timeline-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.98) contrast(1.02);
+      transition: transform 7s ease;
+    }
+
+    .timeline-top:hover img {
+      transform: scale(1.02);
+    }
+
+    .timeline-title {
+      text-align: center;
+      margin-top: -50px;
+      margin-bottom: 60px;
+    }
+
+    .timeline-title h2 {
+      font-family: 'Forum', serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 400;
+      background: rgba(255,252,245,0.85);
+      display: inline-block;
+      padding: 0 30px;
+      letter-spacing: 6px;
+    }
+
+    .events {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+      padding: 20px 30px;
+    }
+
+    .event {
+      text-align: center;
+      max-width: 200px;
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      padding: 30px 20px;
+      border-radius: 56px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+    }
+
+    .event:hover {
+      transform: translateY(-12px);
+      background: white;
+      box-shadow: 0 25px 35px -18px rgba(100, 70, 40, 0.2);
+    }
+
+    .event-time {
+      font-family: 'Forum', serif;
+      font-size: 3.8rem;
+      font-weight: 400;
+      margin-bottom: 18px;
+      color: #b38f6b;
+      position: relative;
+    }
+
+    .event-time::after {
+      content: '';
+      display: block;
+      width: 34px;
+      height: 1px;
+      background: #d7c1a8;
+      margin: 12px auto 0;
+    }
+
+    .event-time::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #ccb59a;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      bottom: -18px;
+      transform: translateX(-50%);
+    }
+
+    .event-title {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-top: 22px;
+    }
+
+    .location {
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-image: url('3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .location::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 248, 240, 0.72);
+      backdrop-filter: blur(1px);
+      z-index: 1;
+    }
+
+    .location-container {
+      max-width: 780px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .location h2 {
+      font-family: 'Forum', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      letter-spacing: 5px;
+    }
+
+    .location-text {
+      font-size: 1.3rem;
+      margin: 28px 0 36px;
+      color: #5a4a38;
+    }
+
+    .place h3 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      font-family: 'Forum', serif;
+    }
+
+    .place p {
+      font-size: 1.2rem;
+      margin: 8px 0 40px;
+      color: #8e755a;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 38px;
+      border: 1px solid #c3aa8c;
+      background: transparent;
+      text-decoration: none;
+      color: #5c4330;
+      font-weight: 500;
+      letter-spacing: 2px;
+      transition: 0.3s;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+    }
+
+    .map-btn i {
+      font-size: 1.2rem;
+    }
+
+    .map-btn:hover {
+      background: #c3aa8c;
+      color: white;
+      border-color: #c3aa8c;
+      transform: scale(0.97);
+    }
+
+    .questions {
+      padding: 130px 20px;
+      background: #fef9f2;
+    }
+
+    .questions-container {
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .questions h2 {
+      text-align: center;
+      font-family: 'Forum', serif;
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+
+    .questions-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #896e51;
+      margin-bottom: 58px;
+    }
+
+    .guest-form {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .guest-form input[type="text"] {
+      width: 100%;
+      padding: 20px 28px;
+      background: white;
+      border: 1px solid #e3d5c6;
+      font-size: 1rem;
+      transition: all 0.2s;
+      border-radius: 48px;
+      outline: none;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .guest-form input[type="text"]:focus {
+      border-color: #c1a17e;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+    }
+
+    .question-block {
+      background: rgba(255,248,240,0.8);
+      padding: 20px 24px;
+      border-radius: 48px;
+      backdrop-filter: blur(5px);
+      transition: all 0.2s;
+    }
+
+    .question-block h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 22px;
+      color: #3e2c1d;
+    }
+
+    .question-block label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: #4f3c2a;
+    }
+
+    .question-block input[type="radio"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #c9b49b;
+      border-radius: 50%;
+      margin: 0;
+      position: relative;
+      cursor: pointer;
+      transition: 0.1s;
+    }
+
+    .question-block input[type="radio"]:checked {
+      border-color: #b28b65;
+      background-color: #b28b65;
+      box-shadow: inset 0 0 0 4px #fff5ea;
+    }
+
+    .guest-form button {
+      padding: 18px;
+      background: #3f2e21;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      letter-spacing: 4px;
+      cursor: pointer;
+      border-radius: 60px;
+      transition: all 0.3s;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    .guest-form button:hover {
+      background: #9f7c5c;
+      letter-spacing: 5px;
+      transform: scale(0.98);
+    }
+
+    .details,
+    .contacts {
+      position: relative;
+      overflow: hidden;
+      padding: 130px 20px;
+      text-align: center;
+    }
+
+    .details {
+      background: #fffdf9;
+    }
+
+    .contacts {
+      background: #f8f2eb;
+    }
+
+    .details::before {
+      content: '8.08';
+      right: 7%;
+      top: 30px;
+      font-size: 180px;
+      color: rgba(178,139,101,0.05);
+      position: absolute;
+      font-family: 'Forum', serif;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .contacts::before {
+      content: '✉︎';
+      left: 5%;
+      top: 50px;
+      font-size: 110px;
+      letter-spacing: 12px;
+      color: rgba(178,139,101,0.035);
+      position: absolute;
+      font-family: 'Forum', serif;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .details-container,
+    .contacts-container {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: auto;
+    }
+
+    .details h2,
+    .contacts h2 {
+      font-family: 'Forum', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 400;
+      letter-spacing: 5px;
+      margin-bottom: 30px;
+      color: #3f2e21;
+    }
+
+    .details-card,
+    .contact-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.72), rgba(248,239,228,0.82));
+      border: 1px solid rgba(207,187,166,0.3);
+      border-radius: 58px;
+      padding: 50px 42px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .details-icon {
+      font-size: 2.2rem;
+      color: #b28b65;
+      margin-bottom: 20px;
+    }
+
+    .details-text {
+      font-size: 1.18rem;
+      line-height: 2;
+      color: #5b4634;
+    }
+
+    .details-text strong {
+      display: inline-block;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b28b65;
+    }
+
+    .contact-card h3 {
+      font-family: 'Forum', serif;
+      font-size: 2.2rem;
+      margin-bottom: 35px;
+      color: #3f2e21;
+      position: relative;
+      display: inline-block;
+      padding: 0 30px;
+    }
+
+    .contact-card h3::before,
+    .contact-card h3::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c3aa8c);
+    }
+
+    .contact-card h3::before {
+      left: -70px;
+    }
+
+    .contact-card h3::after {
+      right: -70px;
+      background: linear-gradient(to left, transparent, #c3aa8c);
+    }
+
+    .contact-item {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      position: relative;
+    }
+
+    .contact-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 60%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(178,139,101,0.4), transparent);
+    }
+
+    .contact-role {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b28b65;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .contact-role::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #ccb59a;
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .contact-name {
+      font-size: 1.3rem;
+      color: #4c3928;
+    }
+
+    .contact-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-name a:hover {
+      color: #b28b65;
+    }
+
+    @media (max-width: 700px) {
+      .details-card,
+      .contact-card {
+        padding: 30px 22px;
+        border-radius: 38px;
+        position: relative;
+        overflow: hidden;
+      }
+      .details-text {
+        font-size: 1.05rem;
+      }
+      .hero-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .hero-image {
+        width: 100%;
+        border-radius: 0;
+      }
+      .hero-image-wrapper::after {
+        border-radius: 0;
+        width: 100%;
+        height: 30%;
+      }
+      .events {
+        gap: 30px;
+      }
+      .event {
+        padding: 20px 15px;
+      }
+      .event-time {
+        font-size: 2.6rem;
+      }
+      .timeline-top {
+        height: 250px;
+      }
+      .invite {
+        padding: 70px 20px;
+      }
+    }
+
+    .guest-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .guest-list-title {
+      text-align: left;
+      padding-left: 6px;
+    }
+
+    .guest-list-title span {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #3f2e21;
+      margin-bottom: 6px;
+    }
+
+    .guest-list-title p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #8b7054;
+    }
+
+    #guestFields {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .guest-input input {
+      width: 100%;
+      padding: 20px 28px;
+      background: white;
+      border: 1px solid #e3d5c6;
+      border-radius: 48px;
+      font-size: 1rem;
+      font-family: 'Manrope', sans-serif;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .guest-input input:focus {
+      border-color: #c1a17e;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+    }
+
+    .add-guest-btn {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border: 1px solid #d7c1a8;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.8);
+      color: #6d5a47;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .add-guest-btn:hover {
+      background: #b28b65;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background: #ebe1d4;
+      text-align: center;
+      padding: 50px 20px;
+      color: #6d5a47;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #6d5a47;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .footer a:hover {
+      color: #b28b65;
+    }
+
+    .thank-popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 20, 10, 0.35);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+
+    .thank-popup.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .thank-popup-content {
+      width: 90%;
+      max-width: 420px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(248,239,228,0.96));
+      border-radius: 42px;
+      padding: 50px 35px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      transform: translateY(30px) scale(0.96);
+      transition: all 0.45s ease;
+    }
+
+    .thank-popup.show .thank-popup-content {
+      transform: translateY(0) scale(1);
+    }
+
+    .thank-heart {
+      font-size: 3rem;
+      color: #b28b65;
+      margin-bottom: 18px;
+      animation: pulseHeart 2s infinite ease;
+    }
+
+    @keyframes pulseHeart {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+
+    .thank-popup h3 {
+      font-family: 'Forum', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #3f2e21;
+      margin-bottom: 18px;
+    }
+
+    .thank-popup p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #6d5a47;
+      margin-bottom: 30px;
+    }
+
+    .thank-popup button {
+      padding: 14px 34px;
+      border: none;
+      border-radius: 50px;
+      background: #3f2e21;
+      color: white;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .thank-popup button:hover {
+      background: #b28b65;
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body>
+
+<div class="floral-aura" style="background-image: url(''); background-repeat: no-repeat; background-position: 80% 15%; background-size: 55% auto; opacity: 0.4;"></div>
+<div class="color-wash"></div>
+
+<div class="content-wrapper">
+  <section class="hero">
+    <div class="hero-image-wrapper fade-up">
+      <img class="hero-image" src="1.JPG" alt="Вартан и Алия">
+    </div>
+    <h1 style="font-family: 'Great Vibes', cursive; font-weight: 400; font-size: clamp(4rem, 10vw, 7rem); line-height: 1.05; margin-top: -10px; opacity: 0.9; transform: scaleY(0.92); display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; column-gap: 0.5rem;">
+      <span style="margin-top: -0.25em;">Вартан</span>
+      <span style="font-size: 0.7em; opacity: 0.8;">&</span>
+      <span style="margin-top: 0.35em;">Алия</span>
+    </h1>
+    <div class="scroll-hint fade-up">
+      ЛИСТАЙТЕ ВНИЗ
+      <div class="arrow-animated"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <section class="invite">
+    <div class="invite-content">
+      <h2 class="fade-up">ДОРОГИЕ ГОСТИ!</h2>
+      <p class="fade-up">
+        С БОЛЬШИМ УДОВОЛЬСТВИЕМ ПРИГЛАШАЕМ<br>
+        ВАС РАЗДЕЛИТЬ С НАМИ ЭТОТ ПРАЗДНИК - НАШУ СВАДЬБУ!
+      </p>
+
+      <!-- ИСПРАВЛЕННЫЙ КАЛЕНДАРЬ на АВГУСТ 2026 (Суббота — 8 число) -->
+      <div class="calendar-classic fade-up">
+        <div class="calendar-title">АВГУСТ 2026</div>
+        <div class="calendar-weekdays">
+          <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
+        </div>
+        <div class="calendar-grid">
+          <!-- 1 августа 2026: суббота, значит перед 1 числом должны быть пустые ячейки для пн-пт (5 пустых) -->
+          <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+          <div>1</div><div>2</div>
+          <div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+          <div class="selected-day">8</div><div>9</div>
+          <div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div>
+          <div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+          <div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div>
+          <div>31</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="timeline-top">
+      <img src="2.jpg" alt="Свадебная атмосфера">
+    </div>
+    <div class="timeline-title">
+      <h2 class="fade-up">ПЛАН<br>МЕРОПРИЯТИЯ</h2>
+    </div>
+    <div class="timeline-divider fade-up">
+      <span></span>
+      <div class="diamond"></div>
+      <span></span>
+    </div>
+    <div class="events">
+      <div class="event fade-up"><div class="event-time">16:30</div><div class="event-title">СБОР ГОСТЕЙ</div></div>
+      <div class="event fade-up"><div class="event-time">17:00</div><div class="event-title">ВЫЕЗДНАЯ ЦЕРЕМОНИЯ</div></div>
+      <div class="event fade-up"><div class="event-time">18:00</div><div class="event-title">НАЧАЛО БАНКЕТА</div></div>
+      <div class="event fade-up"><div class="event-time">00:00</div><div class="event-title">ЗАВЕРШЕНИЕ ВЕЧЕРА</div></div>
+    </div>
+  </section>
+
+  <section class="location">
+    <div class="location-container">
+      <h2 class="fade-up">ЛОКАЦИЯ</h2>
+      <p class="location-text fade-up">
+        Наша свадьба будет проходить<br>в ресторане:
+      </p>
+      <div class="place fade-up">
+        <h3>Восьмая миля</h3><br><br>
+        <p>М-5 Урал, 977-й километр, 1, Тольятти</p>
+      </div>
+      <a href="#" class="map-btn fade-up" id="mapTrigger">
+        <i class="fas fa-map-marker-alt"></i> ОТКРЫТЬ КАРТУ
+      </a>
+    </div>
+  </section>
+
+  <section class="details">
+    <div class="details-container">
+      <h2 class="fade-up">ДЕТАЛИ</h2>
+      <div class="details-card fade-up">
+        <div class="details-icon"><i class="fas fa-gift"></i></div>
+        <div class="details-text">
+          <strong>Подарки</strong><br>
+          Главное для нас — ваше внимание,<br>а радость доставит подарок в конверте!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="questions">
+    <div class="questions-container">
+      <h2 class="fade-up">АНКЕТА ГОСТЯ</h2>
+      <p class="questions-subtitle fade-up">Пожалуйста, подтвердите присутствие до 1 июля 2026</p>
+      <form class="guest-form" id="rsvpForm">
+        <div class="question-block fade-up">
+          <div style="border-bottom: 1px solid #e3d5c6; padding-bottom: 12px; margin-bottom: 22px;">
+            <h3 style="margin-bottom: 6px; letter-spacing: 1px;">Кто будет присутствовать?</h3>
+            <p style="color: #8b7054; font-size: 0.85rem; font-weight: 300;">Укажите ваше имя и добавьте гостей</p>
+          </div>
+          <div class="guest-list">
+            <div id="guestFields">
+              <div class="guest-input">
+                <input type="text" name="guest[]" placeholder="Имя и фамилия" required>
+              </div>
+            </div>
+            <button type="button" class="add-guest-btn" id="addGuestBtn">
+              <i class="fas fa-plus"></i> Добавить гостя
+            </button>
+          </div>
+        </div>
+        <div class="question-block fade-up">
+          <h3>Будете ли вы присутствовать?</h3>
+          <label><input type="radio" name="attend" value="yes"> Да, с радостью</label>
+          <label><input type="radio" name="attend" value="no"> К сожалению, нет</label>
+        </div>
+        <div class="question-block fade-up">
+          <h3>Нужен ли вам транспорт?</h3>
+          <label><input type="radio" name="transfer" value="yes"> Да, потребуется</label>
+          <label><input type="radio" name="transfer" value="no"> Нет, на своем транспорте</label>
+        </div>
+        <button type="submit" class="fade-up"><i class="fas fa-envelope"></i> ОТПРАВИТЬ</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="contacts">
+    <div class="contacts-container">
+      <div class="contact-card fade-up">
+        <h3>Контакты для связи</h3>
+        <div class="contact-item">
+          <span class="contact-role">Организатор</span>
+          <div class="contact-name">Аргине — <a href="tel:+79276958458">+7 (927) 695-84-58</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>С нетерпением ждём встречи <a href="admin.html" id="adminLink">Алия</a> & Вартан</p>
+    <p style="margin-top: 10px; font-size: 0.7rem;">наша свадебная история начинается</p>
+  </footer>
+</div>
+
+<div class="thank-popup" id="thankPopup">
+  <div class="thank-popup-content">
+    <div class="thank-heart"><i class="fas fa-heart"></i></div>
+    <h3>Спасибо!</h3>
+    <p>Ваш ответ успешно отправлен.<br>Мы очень ждём встречи с вами</p>
+    <button type="button" onclick="closeThankPopup()">Закрыть</button>
+  </div>
+</div>
+
+<div class="thank-popup" id="errorPopup">
+  <div class="thank-popup-content">
+    <div class="thank-heart"><i class="fas fa-exclamation"></i></div>
+    <h3>Заполните анкету</h3>
+    <p>Пожалуйста, заполните все пункты</p>
+    <button type="button" onclick="closeErrorPopup()">Закрыть</button>
+  </div>
+</div>
+
+<script type="importmap">
+  {
+    "imports": {
+      "firebase/app": "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js",
+      "firebase/firestore": "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js"
+    }
+  }
+</script>
+
+<script type="module">
+  import { initializeApp } from "firebase/app";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC0WJLl9Wk_kfjDM_e30DqAIJmrpUbffaI",
+    authDomain: "wedding-9137c.firebaseapp.com",
+    projectId: "wedding-9137c",
+    storageBucket: "wedding-9137c.firebasestorage.app",
+    messagingSenderId: "925347871158",
+    appId: "1:925347871158:web:07ab21d8e981e078c86917",
+    measurementId: "G-V65HN070TE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const animatedElements = document.querySelectorAll('.fade-up, .fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+  animatedElements.forEach(el => observer.observe(el));
+
+  window.addEventListener('load', () => {
+    animatedElements.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+        el.classList.add('appear');
+      }
+    });
+    document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('appear'));
+  });
+
+  const mapBtn = document.getElementById('mapTrigger');
+  if (mapBtn) {
+    mapBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const address = encodeURIComponent('Тольятти, Восьмая миля');
+      window.open(`https://yandex.ru/maps/?text=${address}&mode=search`, '_blank');
+    });
+  }
+
+  const addGuestBtn = document.getElementById('addGuestBtn');
+  const guestFields = document.getElementById('guestFields');
+
+  if (addGuestBtn) {
+    addGuestBtn.addEventListener('click', () => {
+      const guestInput = document.createElement('div');
+      guestInput.classList.add('guest-input');
+      guestInput.innerHTML = `<input type="text" name="guest[]" placeholder="Имя и фамилия гостя">`;
+      guestFields.appendChild(guestInput);
+    });
+  }
+
+  const form = document.getElementById('rsvpForm');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const guests = [...form.querySelectorAll('input[name="guest[]"]')]
+        .map(input => input.value.trim())
+        .filter(Boolean);
+      
+      const fullName = guests.join(', ');
+      
+      const attendRadio = form.querySelector('input[name="attend"]:checked');
+      const transferRadio = form.querySelector('input[name="transfer"]:checked');
+      
+      let attendance = null;
+      if (attendRadio) {
+        attendance = attendRadio.value === 'yes' ? 'Да, с радостью' : 'К сожалению, нет';
+      }
+      
+      let transport = null;
+      if (transferRadio) {
+        transport = transferRadio.value === 'yes' ? 'Да, потребуется' : 'Нет, на своем транспорте';
+      }
+
+      if (!fullName || !attendance) {
+        document.getElementById('errorPopup').classList.add('show');
+        return;
+      }
+
+      const formData = {
+        guests: guests,
+        fullName: fullName,
+        attendance: attendance,
+        transport: transport || 'Не указано',
+        createdAt: serverTimestamp(),
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        await addDoc(collection(db, "wedding_guests"), formData);
+        document.getElementById('thankPopup').classList.add('show');
+        form.reset();
+        while (guestFields.children.length > 1) {
+          guestFields.removeChild(guestFields.lastChild);
+        }
+      } catch (error) {
+        console.error('Ошибка при сохранении в Firebase:', error);
+        alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+      }
+    });
+  }
+
+  window.closeThankPopup = function() {
+    document.getElementById('thankPopup').classList.remove('show');
+  }
+
+  window.closeErrorPopup = function() {
+    document.getElementById('errorPopup').classList.remove('show');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "Свадебные анкеты Алии",
+  "short_name": "Свадьба 2026",
+  "description": "Админ-панель для просмотра свадебных анкет",
+  "start_url": "admin.html",
+  "display": "standalone",
+  "theme_color": "#faf7f2",
+  "background_color": "#faf7f2",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
